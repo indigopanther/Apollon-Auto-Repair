@@ -13,6 +13,7 @@
   --radius: 14px;
   --maxw: 1180px;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --marquee-h: 40px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,18 +57,34 @@ h1, h2, h3, .display {
 .btn-ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line); }
 .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
 
+/* MARQUEE */
+.marquee {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 62;
+  height: var(--marquee-h);
+  background: linear-gradient(135deg, var(--amber), var(--amber-2));
+  color: #181818; display: flex; align-items: center; overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+.marquee-track { display: flex; flex-shrink: 0; white-space: nowrap; will-change: transform; animation: marquee 34s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-group { display: flex; flex-shrink: 0; }
+.marquee-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 22px; font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; font-size: 0.92rem; }
+.marquee-dot { color: rgba(24, 24, 24, 0.5); font-size: 0.6rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
 /* NAV */
 .nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+  position: fixed; top: var(--marquee-h); left: 0; right: 0; z-index: 60;
   background: rgba(21, 23, 28, 0.82); backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent; transition: border-color 0.25s, background 0.25s;
 }
 .nav.scrolled { border-bottom: 1px solid var(--line); background: rgba(18, 20, 24, 0.94); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
 .brand { display: flex; align-items: center; gap: 12px; font-family: "Oswald", sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 1px; text-transform: uppercase; }
-.logo-badge { width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, var(--amber), var(--amber-2)); display: grid; place-items: center; color: #15171c; box-shadow: 0 6px 18px rgba(245, 166, 35, 0.4); flex: 0 0 auto; }
-.logo-badge svg { width: 24px; height: 24px; }
+.brand-logo { width: 48px; height: 48px; flex: 0 0 auto; }
 .brand b { color: var(--amber); }
+.foot-brand img { width: 56px; height: 56px; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a.link { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; font-size: 1rem; color: var(--muted); transition: color 0.15s; }
 .nav-links a.link:hover, .nav-links a.link.active { color: var(--amber); }
@@ -125,6 +142,13 @@ main { min-height: 60vh; }
 .feature-list .ck { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 7px; background: rgba(245, 166, 35, 0.15); color: var(--amber); display: grid; place-items: center; margin-top: 2px; font-weight: 700; }
 .feature-list b { display: block; font-family: "Barlow Condensed", sans-serif; letter-spacing: 0.5px; font-size: 1.12rem; text-transform: uppercase; }
 .feature-list span { color: var(--muted); font-size: 0.96rem; }
+
+/* OWNER */
+.owner-grid { display: grid; grid-template-columns: 360px 1fr; gap: 56px; align-items: center; }
+.owner-card { background: linear-gradient(160deg, var(--bg-3), var(--bg-2)); border: 1px solid var(--line); border-radius: 18px; padding: 38px 30px; text-align: center; box-shadow: var(--shadow); }
+.owner-logo { width: 190px; height: 190px; margin: 0 auto 18px; }
+.owner-name { font-family: "Oswald", sans-serif; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; }
+.owner-role { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: 2px; color: var(--amber); font-weight: 600; font-size: 1rem; margin-top: 4px; }
 
 /* SERVICES */
 .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -204,8 +228,12 @@ footer { background: #0f1115; border-top: 1px solid var(--line); padding: 60px 0
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .about-media { min-height: 340px; }
 }
+@media (max-width: 860px) {
+  .owner-grid { grid-template-columns: 1fr; gap: 32px; }
+  .owner-card { max-width: 360px; margin: 0 auto; }
+}
 @media (max-width: 680px) {
-  .nav-links { position: fixed; inset: 74px 0 auto 0; flex-direction: column; align-items: stretch; gap: 0; background: rgba(16, 18, 22, 0.98); border-bottom: 1px solid var(--line); padding: 8px 0; transform: translateY(-130%); transition: transform 0.3s ease; }
+  .nav-links { position: fixed; inset: calc(var(--marquee-h) + 74px) 0 auto 0; flex-direction: column; align-items: stretch; gap: 0; background: rgba(16, 18, 22, 0.98); border-bottom: 1px solid var(--line); padding: 8px 0; transform: translateY(-130%); transition: transform 0.3s ease; }
   .nav-links.open { transform: translateY(0); }
   .nav-links a.link { padding: 14px 24px; border-bottom: 1px solid var(--line); color: var(--text); }
   .nav-links .nav-cta { margin: 12px 24px; justify-content: center; }

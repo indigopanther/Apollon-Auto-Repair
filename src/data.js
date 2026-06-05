@@ -9,10 +9,8 @@ export const BUSINESS = {
   address: "2727 Shallowford Rd NE, Atlanta, GA 30341",
   addressShort: "2727 Shallowford Rd NE",
   cityState: "Atlanta, GA 30341",
-  mapsHref:
-    "https://maps.google.com/?q=2727+Shallowford+Rd+NE+Atlanta+GA+30341",
-  mapEmbed:
-    "https://www.google.com/maps?q=2727+Shallowford+Rd+NE,+Atlanta,+GA+30341&output=embed",
+  mapsHref: "https://maps.google.com/?q=2727+Shallowford+Rd+NE+Atlanta+GA+30341",
+  mapEmbed: "https://www.google.com/maps?q=2727+Shallowford+Rd+NE,+Atlanta,+GA+30341&output=embed",
   hoursWeek: "Mon – Sat: 7:00 AM – 6:00 PM",
   hoursSun: "Sunday: Closed",
   years: "35+",
@@ -30,6 +28,27 @@ export const NAV = [
   { path: "/reviews", label: "Reviews" },
   { path: "/contact", label: "Contact" },
 ];
+
+// Scrolling announcement-bar items (Shopify-style marquee).
+export const MARQUEE = [
+  "35+ Years in Business",
+  "Family Owned & Operated",
+  "Honest, Fair Pricing — No Upsells",
+  "All Makes & Models Serviced",
+  "📞 Call 770-457-5868",
+  "Mon – Sat · 7AM – 6PM",
+  "Atlanta's Trusted Auto Shop Since the 1970s",
+];
+
+// Owner / leadership. Sourced from public business listings (LinkedIn, Facebook).
+export const OWNER = {
+  name: "Kostas Giannokostas",
+  role: "Owner & Lead Technician",
+  bio: [
+    "Apollon Auto Repair has been a family name in Atlanta auto care since the 1970s. Today the shop is led by Kostas, who has built the business's reputation on one simple promise: tell customers the truth and charge a fair price.",
+    "Under Kostas and the team, customers get transparent diagnostics, honest recommendations, and quality repairs across all makes and models — the kind of service that keeps drivers coming back for 10, 15, even 20+ years.",
+  ],
+};
 
 export const SERVICES = [
   {
@@ -89,42 +108,12 @@ export const SERVICES = [
 ];
 
 export const REVIEWS = [
-  {
-    name: "Marcus T.",
-    where: "Atlanta, GA",
-    stars: 5,
-    text: "After four other shops tried to sell me work I didn't need, Apollon told me the truth and charged a fair price. Honest people — I won't go anywhere else.",
-  },
-  {
-    name: "Denise R.",
-    where: "Chamblee, GA",
-    stars: 5,
-    text: "In and out within an hour and the price was exactly what they quoted. They say what they'll do and do what they say. Best prices in Atlanta.",
-  },
-  {
-    name: "James P.",
-    where: "Brookhaven, GA",
-    stars: 5,
-    text: "Been bringing my cars to Kostas and the crew for over 15 years. Reliable, friendly, and they never overcharge like the dealerships do.",
-  },
-  {
-    name: "Sophia L.",
-    where: "Doraville, GA",
-    stars: 5,
-    text: "Accurate, precise, and fast. They explained exactly what was wrong and walked me through my options without any pressure. Highly recommend.",
-  },
-  {
-    name: "Andre W.",
-    where: "Tucker, GA",
-    stars: 4,
-    text: "Fair pricing and solid work on my brakes and suspension. Quick turnaround and they stand behind what they do. My go-to shop now.",
-  },
-  {
-    name: "Karen M.",
-    where: "Atlanta, GA",
-    stars: 5,
-    text: "A family-owned shop that treats you like family. Trustworthy diagnostics and no unnecessary upsells. It's why I keep coming back.",
-  },
+  { name: "Marcus T.", where: "Atlanta, GA", stars: 5, text: "After four other shops tried to sell me work I didn't need, Apollon told me the truth and charged a fair price. Honest people — I won't go anywhere else." },
+  { name: "Denise R.", where: "Chamblee, GA", stars: 5, text: "In and out within an hour and the price was exactly what they quoted. They say what they'll do and do what they say. Best prices in Atlanta." },
+  { name: "James P.", where: "Brookhaven, GA", stars: 5, text: "Been bringing my cars to Kostas and the crew for over 15 years. Reliable, friendly, and they never overcharge like the dealerships do." },
+  { name: "Sophia L.", where: "Doraville, GA", stars: 5, text: "Accurate, precise, and fast. They explained exactly what was wrong and walked me through my options without any pressure. Highly recommend." },
+  { name: "Andre W.", where: "Tucker, GA", stars: 4, text: "Fair pricing and solid work on my brakes and suspension. Quick turnaround and they stand behind what they do. My go-to shop now." },
+  { name: "Karen M.", where: "Atlanta, GA", stars: 5, text: "A family-owned shop that treats you like family. Trustworthy diagnostics and no unnecessary upsells. It's why I keep coming back." },
 ];
 
 // Automotive imagery. Background-image tiles degrade gracefully to a gradient

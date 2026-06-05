@@ -1,4 +1,4 @@
-import { BUSINESS, ABOUT_IMG } from "../data.js";
+import { BUSINESS, ABOUT_IMG, OWNER } from "../data.js";
 import { CtaBand } from "../components/ui.jsx";
 
 const VALUES = [
@@ -33,27 +33,38 @@ export default function About() {
             <p>
               For more than 35 years, Apollon Auto Repair has proudly served the
               Atlanta community with top-quality auto care. As a family-owned and
-              operated business, we've earned our reputation one honest repair at a
-              time.
+              operated business, we've earned our reputation one honest repair at a time.
             </p>
             <p>
               Unlike quick-lube chains, we offer a comprehensive range of services
-              under one roof — making us your single trusted shop for everything
-              your vehicle needs. Whether it's routine maintenance, diagnostics,
-              brake repair, or a major engine job, you can rely on us to keep your
-              vehicle running smoothly.
+              under one roof — making us your single trusted shop for everything your
+              vehicle needs, from routine maintenance to a major engine job.
             </p>
             <p>
-              We prioritize fair and competitive pricing on every repair, so you
-              always get the best value for your money. That's why so many of our
-              customers have trusted us with their vehicles for 10, 15, even 20+
-              years.
+              We prioritize fair and competitive pricing on every repair, so you always
+              get the best value for your money. That's why so many customers have
+              trusted us with their vehicles for 10, 15, even 20+ years.
             </p>
           </div>
         </div>
       </section>
 
       <section className="pad" style={{ background: "var(--bg-2)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+        <div className="wrap owner-grid">
+          <div className="owner-card reveal">
+            <img src="/logo.svg" alt="Apollon Auto Repair" className="owner-logo" />
+            <div className="owner-name">{OWNER.name}</div>
+            <div className="owner-role">{OWNER.role}</div>
+          </div>
+          <div className="about-copy reveal">
+            <span className="eyebrow">Meet the Owner</span>
+            <h2>Led by Family, Built on Trust</h2>
+            {OWNER.bio.map((p, i) => <p key={i}>{p}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="pad">
         <div className="wrap">
           <div className="section-head center reveal">
             <span className="eyebrow">Why Choose Us</span>
