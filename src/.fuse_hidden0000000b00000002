@@ -71,6 +71,7 @@ h1, h2, h3, .display {
 .marquee-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 22px; font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; font-size: 0.92rem; }
 .marquee-dot { color: rgba(24, 24, 24, 0.5); font-size: 0.6rem; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
 /* NAV */
 .nav {

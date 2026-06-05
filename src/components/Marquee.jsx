@@ -1,9 +1,11 @@
 import { MARQUEE } from "../data.js";
 
 export default function Marquee() {
-  // Two identical groups so the -50% translate loops seamlessly.
-  const group = (key) => (
-    <div className="marquee-group" key={key} aria-hidden={key === "b"}>
+  // Four identical groups so the track always exceeds the viewport and the
+  // -50% translate (2 groups) loops seamlessly with no visible gap.
+  const groups = ["a", "b", "c", "d"];
+  const renderGroup = (key) => (
+    <div className="marquee-group" key={key} aria-hidden={key !== "a"}>
       {MARQUEE.map((m, i) => (
         <span className="marquee-item" key={key + i}>
           <span className="marquee-dot">◆</span>
@@ -14,10 +16,7 @@ export default function Marquee() {
   );
   return (
     <div className="marquee" role="region" aria-label="Announcements">
-      <div className="marquee-track">
-        {group("a")}
-        {group("b")}
-      </div>
+      <div className="marquee-track">{groups.map(renderGroup)}</div>
     </div>
   );
 }
